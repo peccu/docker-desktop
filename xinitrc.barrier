@@ -1,0 +1,5 @@
+#!/bin/bash
+[ -d ~/.local/share/barrier/SSL/Fingerprints ] || mkdir -p ~/.local/share/barrier/SSL/Fingerprints
+echo -n | openssl s_client -connect $BARRIER_SERVER_HOST:24800 2>/dev/null | openssl x509 -noout -fingerprint|cut -f2 -d'='| tee ~/.local/share/barrier/SSL/Fingerprints/TrustedServers.txt
+/usr/local/bin/barrierc --enable-crypto --name $BARRIER_CLIENT_NAME $BARRIER_SERVER_HOST
+# /usr/local/bin/barrierc --debug DEBUG --no-daemon --enable-crypto --name $BARRIER_CLIENT_NAME $BARRIER_SERVER_HOST

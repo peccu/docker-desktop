@@ -1,0 +1,25 @@
+version: '3.7'
+services:
+  x:
+    shm_size: '8gb'
+    privileged: true
+    build: ./build
+    restart: always
+    # ports:
+    #   - "8888:8888"
+    env_file:
+     - .env
+    # environment:
+    #   - BARRIER_SERVER_HOST=192.168.0.5
+    volumes:
+      - /run/udev:/run/udev
+      - /run/dbus:/run/dbus
+      - /run/systemd:/run/systemd
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./i3-config:/home/user/.config/i3/config
+      - ./xinitrc.barrier:/home/user/.xinitrc.barrier
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: 192.100.2.0/24
