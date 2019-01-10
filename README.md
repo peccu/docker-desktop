@@ -1,4 +1,4 @@
-# docker desctop with Barrier client
+# docker desktop with Barrier client
 base image is [kunst1080/docker-desktop](https://github.com/kunst1080/docker-desktop).
 
 ## Install
