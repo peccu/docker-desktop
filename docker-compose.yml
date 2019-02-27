@@ -18,6 +18,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./i3-config:/home/user/.config/i3/config
       - ./xinitrc.barrier:/home/user/.xinitrc.barrier
+      - ./.env:/home/user/.env
 networks:
   default:
     ipam:
