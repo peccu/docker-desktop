@@ -1,5 +1,5 @@
 #!/bin/bash
-source ~/.env
+. ~/.env
 [ -d ~/.local/share/barrier/SSL/Fingerprints ] || mkdir -p ~/.local/share/barrier/SSL/Fingerprints
 if ps aux | grep [b]arrierc
 then
